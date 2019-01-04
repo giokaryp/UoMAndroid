@@ -51,9 +51,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
+        android:clickable="true"
         android:text="TextView"
-        android:textColor="@color/text"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/hyperlink"
         android:textSize="16sp"
+        android:textStyle="italic"
         app:layout_constraintBaseline_toBaselineOf="@+id/gametxt"
         app:layout_constraintStart_toEndOf="@+id/gametxt" />
 
@@ -240,11 +243,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
-        android:layout_marginTop="8dp"
         android:backgroundTint="@color/button"
         android:text="watch live"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/streamerInfoBar" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/viewersTextView"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/shareButton"
@@ -274,8 +276,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:text="TextView"
+        android:textAllCaps="true"
         android:textColor="@color/text"
         android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@+id/langtxt"
         app:layout_constraintStart_toEndOf="@+id/langtxt" />
 

@@ -7,6 +7,10 @@
     android:background="@color/background"
     tools:context="gr.uom.android.uomandroid.StreamFragment">
 
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/pullToRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <ListView
         android:id="@+id/streamList"
         android:layout_width="match_parent"
@@ -16,15 +20,15 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@color/backgroundList"
-        android:contextClickable="false"
         android:footerDividersEnabled="false"
         android:textFilterEnabled="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"/>
+    </android.support.v4.widget.SwipeRefreshLayout>
 
-    </ListView>
+
 
     <ProgressBar
         android:id="@+id/loader"
@@ -35,11 +39,11 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/streamList"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/streamList" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

@@ -7,6 +7,8 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.view.DragEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,6 +63,21 @@ public class StreamFragment extends Fragment {
 
         streamAdapter = new StreamAdapter(getContext(), R.layout.stream_list_item, new ArrayList<Stream>());
         listView.setAdapter(streamAdapter);
+
+        final SwipeRefreshLayout pullToRefresh = view.findViewById(R.id.pullToRefresh);
+        pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                if(DownloadStreamData.isNetworkAvailable(getContext())) {
+                    downloadDataFromUrl("https://api.twitch.tv/kraken/streams");
+                }else{
+
+                    Toast.makeText(getContext(), "No Internet Connection", Toast.LENGTH_LONG).show();
+
+                }
+                pullToRefresh.setRefreshing(false);
+            }
+        });
 
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,6 +44,21 @@ public class GameFragment extends Fragment {
 
         gameAdapter = new GameAdapter(getContext(), R.layout.game_grid_item, new ArrayList<Game>());
         gridView.setAdapter(gameAdapter);
+
+        final SwipeRefreshLayout pullToRefresh = view.findViewById(R.id.pullToRefresh);
+        pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                if(DownloadStreamData.isNetworkAvailable(getContext())) {
+                    downloadDataFromUrl("https://api.twitch.tv/kraken/games/top?&limit=25");
+                }else{
+
+                    Toast.makeText(getContext(), "No Internet Connection", Toast.LENGTH_LONG).show();
+
+                }
+                pullToRefresh.setRefreshing(false);
+            }
+        });
 
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

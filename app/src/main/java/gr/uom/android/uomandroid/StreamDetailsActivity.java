@@ -64,6 +64,15 @@ public class StreamDetailsActivity extends AppCompatActivity {
         delayTextView.setText(String.valueOf(stream.getDelay()));
         languageTextView.setText(stream.getLanguage());
 
+        gameTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(StreamDetailsActivity.this,GameStreamsActivity.class);
+                intent.putExtra("gameName","&game="+gameTextView.getText());
+                startActivity(intent);
+            }
+        });
+
         watchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

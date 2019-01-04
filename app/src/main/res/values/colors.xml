@@ -8,4 +8,5 @@
     <color name="text">#ededed</color>
     <color name="infoBar">#003c3f41</color>
     <color name="button">#2d144d</color>
+    <color name="hyperlink">#FFFF8000</color>
 </resources>

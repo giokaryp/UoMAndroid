@@ -1,6 +1,7 @@
 package gr.uom.android.uomandroid;
 
 import android.content.Intent;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,7 +25,7 @@ public class GameStreamsActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        String url = baseUrl + intent.getStringExtra("gameName");
+        final String url = baseUrl + intent.getStringExtra("gameName");
 
         listView = findViewById(R.id.streamList);
         loader=findViewById(R.id.loader);
@@ -32,6 +33,21 @@ public class GameStreamsActivity extends AppCompatActivity {
 
         streamAdapter = new StreamAdapter(this, R.layout.stream_list_item, new ArrayList<Stream>());
         listView.setAdapter(streamAdapter);
+
+        final SwipeRefreshLayout pullToRefresh =findViewById(R.id.pullToRefresh);
+        pullToRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                if(DownloadStreamData.isNetworkAvailable(getApplicationContext())) {
+                    downloadDataFromUrl(url);
+                }else{
+
+                    Toast.makeText(getApplicationContext(), "No Internet Connection", Toast.LENGTH_LONG).show();
+
+                }
+                pullToRefresh.setRefreshing(false);
+            }
+        });
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

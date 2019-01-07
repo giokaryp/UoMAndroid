@@ -104,4 +104,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/streamInfoBar"
         app:layout_constraintEnd_toEndOf="@+id/logoImage" />
 
+
+
 </android.support.constraint.ConstraintLayout>

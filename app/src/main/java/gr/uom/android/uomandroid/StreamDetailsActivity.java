@@ -60,8 +60,8 @@ public class StreamDetailsActivity extends AppCompatActivity {
         viewsTextView.setText(String.format("%,d",stream.getViewers()));
         followsTextView.setText(String.format("%,d",stream.getFollowers()));
         totalViewsTextView.setText(String.format("%,d",stream.getTotalViews()));
-        avgFpsTextView.setText(String.format("%,d",stream.getFps()));
-        delayTextView.setText(String.format("%,d",stream.getDelay()));
+        avgFpsTextView.setText(String.valueOf(stream.getFps()));
+        delayTextView.setText(String.format("%,d",stream.getDelay())+" sec");
         languageTextView.setText(stream.getLanguage());
 
         gameTextView.setOnClickListener(new View.OnClickListener() {

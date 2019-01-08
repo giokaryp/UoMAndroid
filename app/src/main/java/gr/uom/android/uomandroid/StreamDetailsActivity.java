@@ -68,7 +68,7 @@ public class StreamDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent= new Intent(StreamDetailsActivity.this,GameStreamsActivity.class);
-                intent.putExtra("gameName","&game="+gameTextView.getText());
+                intent.putExtra("gameName",gameTextView.getText());
                 startActivity(intent);
             }
         });

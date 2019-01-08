@@ -60,10 +60,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_topStreams:
+                setTitle("Top Streams");
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new StreamFragment()).commit();
                 break;
             case R.id.nav_topGames:
+                setTitle("Top Games");
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new GameFragment()).commit();
                 break;

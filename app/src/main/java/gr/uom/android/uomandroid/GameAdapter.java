@@ -63,7 +63,7 @@ public class GameAdapter extends ArrayAdapter<Game> {
         Game game = games.get(position);
 
         viewHolder.name.setText(game.getName());
-        viewHolder.viewers.setText(String.valueOf(game.getViewers()));
+        viewHolder.viewers.setText(String.format("%,d",game.getViewers()));
         Picasso.get().load(game.getUrlToImage()).into(viewHolder.logo);
 
         return convertView;

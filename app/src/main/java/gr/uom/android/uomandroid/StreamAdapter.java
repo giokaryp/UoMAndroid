@@ -65,7 +65,7 @@ public class StreamAdapter extends ArrayAdapter<Stream> {
         viewHolder.name.setText(stream.getName());
         viewHolder.game.setText(stream.getGame());
         viewHolder.status.setText("-"+stream.getStatus());
-        viewHolder.viewers.setText(String.valueOf(stream.getViewers()));
+        viewHolder.viewers.setText(String.format("%,d",stream.getViewers()));
         Picasso.get().load(stream.getUrlToImage()).into(viewHolder.logo);
         Picasso.get().load(stream.getUrlToPreviewImage()).into(viewHolder.preview);
 

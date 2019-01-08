@@ -71,7 +71,7 @@ public class GameFragment extends Fragment {
 
 
 
-                intent.putExtra("gameName","&game="+gameName);
+                intent.putExtra("gameName",gameName);
                 startActivity(intent);
             }
         });

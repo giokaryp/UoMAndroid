@@ -23,7 +23,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".GameStreamsActivity" />
-        <activity android:name=".StreamDetailsActivity"></activity>
+        <activity android:name=".StreamDetailsActivity"
+                  android:label="Channel Details"/>
     </application>
 
 </manifest>

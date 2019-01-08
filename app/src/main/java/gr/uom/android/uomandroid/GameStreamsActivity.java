@@ -23,9 +23,10 @@ public class GameStreamsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.stream_list_fragment);
 
-        Intent intent = getIntent();
+        String gameName= getIntent().getStringExtra("gameName");
+        setTitle(gameName);
 
-        final String url = baseUrl + intent.getStringExtra("gameName");
+        final String url = baseUrl +"&game="+ gameName;
 
         listView = findViewById(R.id.streamList);
         loader=findViewById(R.id.loader);
